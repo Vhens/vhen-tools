@@ -2,10 +2,10 @@
  * @Author: Vhen
  * @Date: 2020-09-23 16:27:53
  * @LastEditors: Vhen
- * @LastEditTime: 2020-09-30 10:32:14
+ * @LastEditTime: 2020-09-30 11:56:11
  * @Description: 
  */
- import moment from 'moment'
+ import moment from '../lib/moment'
  const Tool = {};
 /**
 * @description: 格式化时间
