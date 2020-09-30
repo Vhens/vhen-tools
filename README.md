@@ -2,7 +2,7 @@
  * @Author: Vhen
  * @Date: 2020-09-30 13:40:53
  * @LastEditors: Vhen
- * @LastEditTime: 2020-09-30 15:26:40
+ * @LastEditTime: 2020-09-30 17:36:07
  * @Description: 
 -->
 # 工具类文档
@@ -36,18 +36,23 @@ tool.amountSeparator(545664645656.3568787) // 5,664,645,656.356878
 ```js
  // 未来十天
   let dayArr = tool.setDay(10);
- Tool.toTimeFormat(dayArr[0]); // 2020-09-30
- Tool.toTimeFormat(dayArr[1]); // 2020-10-10
+ tool.toTimeFormat(dayArr[0]); // 2020-09-30
+ tool.toTimeFormat(dayArr[1]); // 2020-10-10
 
  // 今天
  let dayArr = tool.setDay();
- Tool.toTimeFormat(dayArr[0]); // 2020-09-30
- Tool.toTimeFormat(dayArr[1]); // 2020-09-30
+ tool.toTimeFormat(dayArr[0]); // 2020-09-30
+ tool.toTimeFormat(dayArr[1]); // 2020-09-30
 
  // 最近10天
 
 let dayArr = tool.setDay(-10);
- Tool.toTimeFormat(dayArr[0]); // 2020-09-20
- Tool.toTimeFormat(dayArr[1]); // 2020-09-30
+ tool.toTimeFormat(dayArr[0]); // 2020-09-20
+ tool.toTimeFormat(dayArr[1]); // 2020-09-30
 
+```
+- 隐藏某部分字符串/或者替换部分字符串
+
+```js
+tool.hideStr('123456789',3,4) // 123****6789
 ```

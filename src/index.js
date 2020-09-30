@@ -2,7 +2,7 @@
  * @Author: Vhen
  * @Date: 2020-09-23 16:27:53
  * @LastEditors: Vhen
- * @LastEditTime: 2020-09-30 16:34:52
+ * @LastEditTime: 2020-09-30 17:34:20
  * @Description:
  */
 import moment from '../lib/moment'
@@ -50,6 +50,11 @@ Tool.setDay = (day = 0) => {
   return day === 0 ? [nowTime, nowTime] : day === 1 ? [end, end] : [end, nowTime]
 }
 
+/** 隐藏某部分字符串/或者替换部分字符串
+ * @description: 最近7天等 默认0是今日
+ * @param {type}
+ * @return:
+ */
 Tool.hideStr = (str, topFew, lastFew, character = '****') => {
   if (str) {
     return str.substring(0, topFew) + character + str.substring(str.length - lastFew, str.length)
