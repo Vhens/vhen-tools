@@ -2,7 +2,7 @@
  * @Author: Vhen
  * @Date: 2020-09-23 16:27:53
  * @LastEditors: Vhen
- * @LastEditTime: 2020-09-30 14:59:17
+ * @LastEditTime: 2020-09-30 16:34:52
  * @Description:
  */
 import moment from '../lib/moment'
@@ -13,17 +13,16 @@ const Tool = {}
  * @return:
  */
 Tool.toTimeFormat = (str, pattern = 'YYYY-MM-DD') => {
-  if (!str) {
-    return ''
+  if (str) {
+    const patternArr = pattern.split(' ')
+    let result = patternArr[0].toUpperCase()
+    result = result.replace(/:MM/g, ':mm')
+    result = result.replace(/S/g, 's')
+    if (patternArr.length > 1) {
+      result += ` ${patternArr[1].replace(/h/g, 'H')}`
+    }
+    return moment(str).format(result)
   }
-  const patternArr = pattern.split(' ')
-  let result = patternArr[0].toUpperCase()
-  result = result.replace(/:MM/g, ':mm')
-  result = result.replace(/S/g, 's')
-  if (patternArr.length > 1) {
-    result += ` ${patternArr[1].replace(/h/g, 'H')}`
-  }
-  return moment(str).format(result)
 }
 
 /**
@@ -33,8 +32,10 @@ Tool.toTimeFormat = (str, pattern = 'YYYY-MM-DD') => {
  * @return:
  */
 Tool.amountSeparator = (num, type) => {
-  num=type ? Number(num).toFixed(type) : String(num)
-  return num.replace(/(\d)(?=(\d{3})+\.)/g, '$1,')
+  if (num) {
+    num = type ? Number(num).toFixed(type) : String(num)
+    return num.replace(/(\d)(?=(\d{3})+\.)/g, '$1,')
+  }
 }
 
 /** 设置天数
@@ -43,11 +44,16 @@ Tool.amountSeparator = (num, type) => {
  * @return:
  */
 Tool.setDay = (day = 0) => {
-  const start = new Date();
-  const nowTime = start.getTime();
-  const end = start.setTime(start.getTime() - 3600 * 1000 * 24 * day);
-  return day === 0 ? [nowTime, nowTime] :
-    day === 1 ? [end, end] : [end, nowTime];
+  const start = new Date()
+  const nowTime = start.getTime()
+  const end = start.setTime(start.getTime() - 3600 * 1000 * 24 * day)
+  return day === 0 ? [nowTime, nowTime] : day === 1 ? [end, end] : [end, nowTime]
+}
+
+Tool.hideStr = (str, topFew, lastFew, character = '****') => {
+  if (str) {
+    return str.substring(0, topFew) + character + str.substring(str.length - lastFew, str.length)
+  }
 }
 
 export default Tool
