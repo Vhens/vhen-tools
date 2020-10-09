@@ -2,7 +2,7 @@
  * @Author: Vhen
  * @Date: 2020-09-23 16:27:53
  * @LastEditors: Vhen
- * @LastEditTime: 2020-09-30 17:34:20
+ * @LastEditTime: 2020-10-09 10:53:23
  * @Description:
  */
 import moment from '../lib/moment'
@@ -58,6 +58,27 @@ Tool.setDay = (day = 0) => {
 Tool.hideStr = (str, topFew, lastFew, character = '****') => {
   if (str) {
     return str.substring(0, topFew) + character + str.substring(str.length - lastFew, str.length)
+  }
+}
+
+/** 生成从min到max的随机数整数
+ * @description: 
+ * @param {type}
+ * @return:
+ */
+Tool.randomNum = (min, max) => {
+    return Math.floor(min + Math.random() * (max - min)) 
+}
+
+/** 字符串空格
+ * @description: 
+ * @param {type}
+ * @return:
+ */
+Tool.strSpace=(str, digit = 4)=> {
+  if (str) {
+    let reg = new RegExp("(.{" + digit + "})", "g");
+    return str.replace(reg, "$1 ");
   }
 }
 

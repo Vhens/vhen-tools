@@ -2,7 +2,7 @@
  * @Author: Vhen
  * @Date: 2020-09-30 13:40:53
  * @LastEditors: Vhen
- * @LastEditTime: 2020-09-30 17:36:07
+ * @LastEditTime: 2020-10-09 10:56:10
  * @Description: 
 -->
 # 工具类文档
@@ -55,4 +55,17 @@ let dayArr = tool.setDay(-10);
 
 ```js
 tool.hideStr('123456789',3,4) // 123****6789
+tool.hideStr('abcdefg',3,4,'----') // abc----defg
+```
+
+- 生成从min到max的随机数整数
+
+```js
+tool.randomNum(10000,99999) // 95301 随机五位数
+```
+
+- 指定位数字符串空格
+
+```js
+tool.strSpace('5465456454654646',5) // 54654 56454 65464 6
 ```
